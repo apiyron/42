@@ -6,16 +6,18 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 07:27:59 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/22 08:34:12 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2018/12/22 18:25:40 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+
 #define LLONG_MAX	9223372036854775807
 #define TRUE		1
 #define FALSE		0
+#define NOT_PRINTED(x) (x == '\v' || x == '\f' || x == '\r')
 
-int	ft_atoi(const char *str)
+int	ft_atoi(const char *s)
 {
 	int					i;
 	int					is_neg;
@@ -24,14 +26,14 @@ int	ft_atoi(const char *str)
 	i = 0;
 	is_neg = FALSE;
 	num = 0;
-	while (IS_NOT_PRINTED(str[i]) || str[i] == ' ')
+	while (NOT_PRINTED(s[i]) || s[i] == ' ' || s[i] == '\t' || s[i] == '\n')
 		i++;
-	if (str[i] == '-')
+	if (s[i] == '-')
 		is_neg = TRUE;
-	if ((str[i] == '-') || (str[i] == '+'))
+	if ((s[i] == '-') || (s[i] == '+'))
 		i++;
-	while (ft_isdigit(str[i]))
-		num = (10 * num) + ((int)str[i++] - '0');
+	while (ft_isdigit(s[i]))
+		num = (10 * num) + ((int)s[i++] - '0');
 	if (num > LLONG_MAX && !(is_neg))
 		return (-1);
 	if (num > LLONG_MAX && is_neg)

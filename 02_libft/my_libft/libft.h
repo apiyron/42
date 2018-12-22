@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 19:28:52 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/22 08:57:06 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2018/12/22 18:26:40 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
-
-#define IS_NOT_PRINTED(x) (x == '\t' || x == '\n' \
-|| x == '\v' || x == '\f' || x == '\r')
 
 int		ft_isascii(int c);
 int		ft_isalpha(int c);
@@ -34,7 +31,7 @@ int		ft_strcmp(const char *s1, const char *s2);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strcpy(char *dst, const char *src);
 char	*ft_strncpy(char *dst, const char *src, size_t len);
-char 	*ft_strcat(char *s1, const char *s2);
+char	*ft_strcat(char *s1, const char *s2);
 char	*ft_strncat(char *s1, const char *s2, size_t n);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 char	*ft_strchr(const char *s, int c);

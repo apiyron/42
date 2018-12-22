@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/21 00:46:16 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/21 10:14:02 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2018/12/22 18:26:10 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strstr(const char *haystack, const char *needle)
 		while (needle[++j])
 		{
 			if (haystack[i + j] != needle[j])
-				break;
+				break ;
 		}
 		if (j == ft_strlen(needle))
 			return ((char *)(&haystack[i]));

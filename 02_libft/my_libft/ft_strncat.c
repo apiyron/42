@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 03:47:08 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/22 04:51:33 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2018/12/22 18:06:49 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,12 @@
 char	*ft_strncat(char *s1, const char *s2, size_t n)
 {
 	char	*buff;
+	char	*start_s2;
 
 	buff = s1;
 	while (*buff != '\0')
 		buff++;
-	char	*start_s2 = buff;
+	*start_s2 = buff;
 	while (*s2 != '\0' && (buff - start_s2) < (int)n)
 		*buff++ = *s2++;
 	*buff = '\0';
