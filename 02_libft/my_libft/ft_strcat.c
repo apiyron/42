@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/08 21:43:36 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/22 07:26:56 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2018/12/22 03:13:04 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2018/12/22 03:46:41 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strrchr(char *s, int c)
+char	*ft_strcat(char *s1, const char *s2)
 {
-	int i;
+	char	*buff;
 
-	i = 0;
-	while (s[i] != '\0')
-		i++;
-	while (i >= 0)
-	{
-		if (s[i] == c)
-			return (&s[i]);
-		i--;
-	}
-	return (NULL);
+	buff = s1;
+	while (*buff != '\0')
+		buff++;
+	while (*s2 != '\0')
+		*buff++ = *s2++;
+	*buff = '\0';
+	return (s1);
 }
