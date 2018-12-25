@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 03:13:04 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/24 06:17:32 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2018/12/24 05:34:44 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2018/12/24 07:01:29 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+void	ft_bzero(void *s, size_t n)
 {
-	char	*buff4ik;
-
-	buff4ik = s1;
-	while (*buff4ik != '\0')
-		buff4ik++;
-	while (*s2 != '\0')
-		*buff4ik++ = *s2++;
-	*buff4ik = '\0';
-	return (s1);
+	while (n-- > 0)
+		((char *)s)[n] = '\0';
 }

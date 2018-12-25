@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcat.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 03:13:04 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/24 06:17:32 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2018/12/24 07:10:18 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2018/12/24 08:08:28 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strcat(char *s1, const char *s2)
+int		ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char	*buff4ik;
+	size_t i;
 
-	buff4ik = s1;
-	while (*buff4ik != '\0')
-		buff4ik++;
-	while (*s2 != '\0')
-		*buff4ik++ = *s2++;
-	*buff4ik = '\0';
-	return (s1);
+	i = -1;
+	while (++i < n)
+	{
+		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
+			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+	}
+	return 0;
 }
