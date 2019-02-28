@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/24 07:10:18 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/24 08:08:28 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2018/12/25 19:13:33 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@ int		ft_memcmp(const void *s1, const void *s2, size_t n)
 		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
 			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
 	}
-	return 0;
+	return (0);
 }

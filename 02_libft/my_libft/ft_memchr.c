@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/24 10:45:32 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/24 11:00:06 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2018/12/25 19:14:06 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	size_t 		i;
+	size_t		i;
 	const char	*buff4ik;
 
 	buff4ik = s;
