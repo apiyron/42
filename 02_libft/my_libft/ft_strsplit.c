@@ -5,36 +5,53 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/20 03:44:38 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/03/20 04:07:48 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/04/30 19:35:32 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/04/30 20:08:37 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	**ft_strsplit(char const *s, char c)
+static int		get_word_len(char const *str, char c)
 {
-	char	**arr;
-	int		i;
-	int		j;
-	int		start;
-	int		end;
+	int	i;
+	int	length;
 
 	i = 0;
-	j = 0;
-	arr = NULL;
-	if (!s || !c)
-		return (NULL);
-	while (s[j])
+	length = 0;
+	while (str[i] == c)
+		i++;
+	while (str[i] != c && str[i] != '\0')
 	{
+		i++;
+		length++;
+	}
+	return (length);
+}
+
+char			**ft_strsplit(char const *s, char c)
+{
+	int		i;
+	int		j;
+	int		k;
+	char	**str;
+
+	if (!s || !(str = (char **)malloc(sizeof(*str) *
+		(ft_countwords(s, c) + 1))))
+		return (NULL);
+	i = -1;
+	j = 0;
+	while (++i < ft_countwords(s, c))
+	{
+		k = 0;
+		if (!(str[i] = ft_strnew(get_word_len(&s[j], c) + 1)))
+			str[i] = NULL;
 		while (s[j] == c)
 			j++;
-		start = j;
-		while (s[j] != c && s[j] != '\0')
-			j++;
-		end = j;
-		arr[i] = ft_strsub(s, start, end - start + 1);
-		i++;
+		while (s[j] != c && s[j])
+			str[i][k++] = s[j++];
+		str[i][k] = '\0';
 	}
-	return (arr);
+	str[i] = 0;
+	return (str);
 }
