@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/03 15:50:35 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/22 07:17:38 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/04/30 20:47:51 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/14 16:57:32 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int		ft_strlen(const char *s)
-{
-	int len;
+#include "libft.h"
 
-	len = 0;
-	while (*s++ != '\0')
-		len++;
-	return (len);
+t_list		*ft_lst_reverse(t_list *lst)
+{
+	t_list	*prev;
+	t_list	*cur;
+	t_list	*next;
+
+	prev = NULL;
+	cur = lst;
+	while (cur != NULL)
+	{
+		next = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = next;
+	}
+	lst = prev;
+	return (lst);
 }

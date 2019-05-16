@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 19:28:52 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/04/30 21:16:37 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2019/05/14 17:47:01 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int					ft_tolower(int c);
 int					ft_atoi(const char *str);
 
 char				*ft_strdup(const char *src);
-int					ft_strlen(const char *s);
+size_t				ft_strlen(const char *s);
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
 char				*ft_strcpy(char *dst, const char *src);
@@ -42,7 +42,7 @@ char				*ft_strnstr
 
 void				ft_bzero(void *s, size_t n);
 void				*ft_memset(void *b, int c, size_t len);
-int					memcmp(const void *s1, const void *s2, size_t n);
+int					ft_memcmp(const void *s1, const void *s2, size_t n);
 void				*ft_memcpy(void *dst, const void *src, size_t n);
 void				*ft_memmove(void *dst, const void *src, size_t len);
 void				*ft_memchr(const void *s, int c, size_t n);
@@ -66,7 +66,6 @@ char				*ft_strtrim(char const *s);
 void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 
-int					ft_countwords(char const *str, char c);
 char				**ft_strsplit(char const *s, char c);
 char				*ft_itoa(int n);
 void				ft_putnbr(int n);
@@ -89,5 +88,14 @@ void				ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+
+int					ft_abs(int num);
+int					ft_isblank(char c);
+int					ft_isspace(int c);
+char				*ft_capitalize(char *s);
+int					ft_countwords(char const *str, char c);
+t_list				*ft_lst_reverse(t_list *lst);
+void				ft_lstaddback(t_list **lst, t_list *new);
+int					ft_count2darray(char **arr);
 
 #endif

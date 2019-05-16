@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 20:47:51 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/04/30 20:47:54 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2018/12/22 05:15:26 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/13 14:48:40 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lst_reverse(t_list *alst)
+size_t		ft_strlcat(char *dst, const char *src, size_t size)
 {
-	t_list	*prev;
-	t_list	*cur;
-	t_list	*next;
+	size_t		i;
+	int			j;
+	size_t		dst_len;
+	size_t		src_len;
 
-	prev = NULL;
-	cur = alst;
-	while (cur != NULL)
+	i = ft_strlen(dst);
+	j = 0;
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (size < dst_len + 1)
+		return (src_len + size);
+	if (size > dst_len + 1)
 	{
-		next = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = next;
+		while (i < size - 1)
+			*(dst + i++) = *(src + j++);
+		*(dst + i) = '\0';
 	}
-	alst = prev;
-	return (alst);
+	return (dst_len + src_len);
 }

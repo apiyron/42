@@ -1,26 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstaddback.c                                    :+:      :+:    :+:   */
+/*   ft_capitalize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 20:48:12 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/04/30 20:48:13 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/05/14 17:44:07 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/14 17:44:15 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstaddback(t_list **alst, t_list *new)
+char	*ft_capitalize(char *s)
 {
-	t_list	*tmp;
-	t_list	*head;
+	char	*new;
+	int		i;
 
-	tmp = *alst;
-	head = tmp;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
-	*alst = head;
+	if (!s)
+		return (NULL);
+	new = ft_strnew(ft_strlen(s));
+	new[0] = ft_toupper(s[0]);
+	i = 0;
+	while (*(s + ++i))
+		if (!ft_isalnum(s[i - 1]) && ft_isalnum(s[i]))
+			new[i] = ft_toupper(s[i]);
+		else
+			new[i] = s[i];
+	return (new);
 }
