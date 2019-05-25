@@ -1,20 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
+/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mrhea-ro <mrhea-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 20:48:26 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/04/30 20:48:26 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/04/30 20:47:51 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/18 17:19:23 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
+t_list		*ft_lst_reverse(t_list *lst)
 {
-	del((*alst)->content, (*alst)->content_size);
-	free(*alst);
-	*alst = NULL;
+	t_list	*prev;
+	t_list	*cur;
+	t_list	*next;
+
+	prev = NULL;
+	if (!lst)
+		return (lst);
+	cur = lst;
+	while (cur != NULL)
+	{
+		next = cur->next;
+		cur->next = prev;
+		prev = cur;
+		cur = next;
+	}
+	lst = prev;
+	return (lst);
 }

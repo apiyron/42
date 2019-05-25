@@ -1,32 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lst_reverse.c                                   :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/04/30 20:47:51 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/14 16:57:32 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2018/09/27 21:02:54 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/23 21:36:05 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-t_list		*ft_lst_reverse(t_list *lst)
+char	*ft_strdup(const char *src)
 {
-	t_list	*prev;
-	t_list	*cur;
-	t_list	*next;
+	int		i;
+	char	*dst;
 
-	prev = NULL;
-	cur = lst;
-	while (cur != NULL)
-	{
-		next = cur->next;
-		cur->next = prev;
-		prev = cur;
-		cur = next;
-	}
-	lst = prev;
-	return (lst);
+	i = 0;
+	while (src[i] != '\0')
+		i++;
+	dst = (char *)malloc(sizeof(char) * (i + 1));
+	if (dst == NULL)
+		return (NULL);
+	i = -1;
+	while (src[++i])
+		dst[i] = src[i];
+	dst[i] = '\0';
+	return (dst);
 }

@@ -1,21 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strnew.c                                        :+:      :+:    :+:   */
+/*   ft_lstdelone.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/02 22:49:14 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/03/19 22:06:17 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/04/30 20:48:26 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/23 21:35:01 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strnew(size_t size)
+void	ft_lstdelone(t_list **alst, void (*del)(void *, size_t))
 {
-	char	*fresh;
-
-	fresh = (char *)ft_memalloc(size + 1);
-	return (fresh);
+	if (del && alst && *alst)
+	{
+		del((*alst)->content, (*alst)->content_size);
+		free(*alst);
+		*alst = NULL;
+	}
+	else
+		return ;
 }

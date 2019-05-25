@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 05:15:26 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/13 14:48:40 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/03/19 21:22:36 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/23 21:36:47 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+void	*ft_memalloc(size_t size)
 {
-	size_t		i;
-	int			j;
-	size_t		dst_len;
-	size_t		src_len;
+	void *fresh;
 
-	i = ft_strlen(dst);
-	j = 0;
-	dst_len = ft_strlen(dst);
-	src_len = ft_strlen(src);
-	if (size < dst_len + 1)
-		return (src_len + size);
-	if (size > dst_len + 1)
-	{
-		while (i < size - 1)
-			*(dst + i++) = *(src + j++);
-		*(dst + i) = '\0';
-	}
-	return (dst_len + src_len);
+	fresh = (void *)malloc(size);
+	if (!fresh)
+		return (NULL);
+	ft_bzero(fresh, size);
+	return (fresh);
 }

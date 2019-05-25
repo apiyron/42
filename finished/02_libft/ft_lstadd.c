@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/24 07:10:18 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/25 19:13:33 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/04/30 20:48:04 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/25 11:35:38 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_memcmp(const void *s1, const void *s2, size_t n)
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	size_t i;
-
-	i = -1;
-	while (++i < n)
+	if (alst != NULL && new != NULL)
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return (((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]);
+		new->next = *alst;
+		*alst = new;
 	}
-	return (0);
 }

@@ -1,20 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrhea-ro <mrhea-ro@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/24 08:09:28 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/02/28 22:26:40 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/03/02 22:49:14 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/25 13:26:51 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dst, const void *src, size_t n)
+char	*ft_strnew(size_t size)
 {
-	while (n-- > 0)
-		((char *)dst)[n] = ((const char *)src)[n];
-	return (char *)(dst);
+	char				*fresh;
+	unsigned long int	max_size_t;
+
+	max_size_t = 18374686479671623680U;
+	if (size == max_size_t)
+		return (NULL);
+	if (!(fresh = (char *)ft_memalloc(size + 1)))
+		return (NULL);
+	return (fresh);
 }

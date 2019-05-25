@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 19:28:52 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/14 17:47:01 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2019/05/25 13:30:37 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ char				*ft_strcat(char *s1, const char *s2);
 char				*ft_strncat(char *s1, const char *s2, size_t n);
 size_t				ft_strlcat(char *dst, const char *src, size_t size);
 char				*ft_strchr(const char *s, int c);
-char				*ft_strrchr(char *s, int c);
+char				*ft_strrchr(const char *s, int c);
 char				*ft_strstr(const char *haystack, const char *needle);
 char				*ft_strnstr
 						(const char *haystack, const char *needle, size_t len);
@@ -89,13 +89,13 @@ void				ft_lstadd(t_list **alst, t_list *new);
 void				ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list				*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-int					ft_abs(int num);
 int					ft_isblank(char c);
 int					ft_isspace(int c);
 char				*ft_capitalize(char *s);
-int					ft_countwords(char const *str, char c);
+int					ft_words(char const *str, char c);
 t_list				*ft_lst_reverse(t_list *lst);
 void				ft_lstaddback(t_list **lst, t_list *new);
 int					ft_count2darray(char **arr);
+void				ft_lstfree(t_list *head);
 
 #endif

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: caking <caking@student.21-school.ru>       +#+  +:+       +#+        */
+/*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/22 07:27:59 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/14 22:03:49 by caking           ###   ########.fr       */
+/*   Created: 2019/05/16 09:36:33 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/19 19:48:49 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,6 @@ int	ft_atoi(const char *s)
 	if (num > LLONG_MAX && is_neg)
 		return (0);
 	if (is_neg)
-		return (-num);
+		return (-(int)num);
 	return (num);
 }

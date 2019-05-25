@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*   ft_lstaddtoend.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/12/24 08:38:56 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2018/12/24 10:37:29 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/04/30 20:48:12 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/25 11:42:54 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memmove(void *dst, const void *src, size_t len)
+void	ft_lstaddtoend(t_list **lst, t_list *new)
 {
-	unsigned char	*dest;
-	unsigned char	*source;
-	size_t			i;
+	t_list	*tmp;
+	t_list	*head;
 
-	i = -1;
-	dest = (unsigned char *)dst;
-	source = (unsigned char *)src;
-	if (dst > src)
-		while (len-- > 0)
-			*(dest + len) = *(source + len);
-	else
-		while (++i < len)
-			*(dest + i) = *(source + i);
-	return (dst);
+	if (lst != NULL && new != NULL)
+	{
+		tmp = *lst;
+		head = tmp;
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+		*lst = head;
+	}
 }
