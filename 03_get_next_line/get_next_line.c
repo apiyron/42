@@ -6,16 +6,16 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 15:53:16 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 18:07:58 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2019/05/26 18:23:49 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-static char		getN(char **g)
+static char		*get_n(char **g)
 {
 	size_t	i;
-	char 	*str;
+	char	*str;
 	char	*tmp;
 	char	*tmp2;
 
@@ -38,19 +38,19 @@ int				get_next_line(const int fd, char **line)
 	char			buff[BUFF_SIZE + 1];
 	int				check;
 
-	if ((read(fd, buff, 0) < 0 || line == NULL))
+	if (read(fd, buff, 0) < 0 || line == NULL)
 		return (-1);
 	while (ft_findchar(memory[fd], '\n') == 0)
 	{
 		check = read(fd, buff, BUFF_SIZE);
 		buff[check] = '\0';
 		if (check <= 0)
-			break;
+			break ;
 		memory[fd] = ft_strjoinfree(memory[fd], buff);
 	}
-	if (ft_strlen(memory[fd]) || check >0)
+	if (ft_strlen(memory[fd]) || check > 0)
 	{
-		*line = getN(&memory[fd]);
+		*line = get_n(&memory[fd]);
 		return (1);
 	}
 	if (memory[fd])
@@ -58,5 +58,11 @@ int				get_next_line(const int fd, char **line)
 		free(memory[fd]);
 		memory[fd] = NULL;
 	}
+	return (0);
+}
+
+int				main()
+{
+	printf("hi mark");
 	return (0);
 }
