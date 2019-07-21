@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_get_next_line.h                                 :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 15:53:45 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/07/13 22:18:35 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/07/18 22:39:46 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/07/18 23:05:15 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_GET_NEXT_LINE_H
+#include <unistd.h>
+#include <stdlib.h>
 
-# define FT_GET_NEXT_LINE_H
-# define BUFF_SIZE 50000
-# define MAX_FD 255
-
-# include <stdlib.h>
-# include <string.h>
-# include <unistd.h>
-# include <ctype.h>
-# include <fcntl.h>
-# include <stdio.h>
-# include "libft.h"
-
-int	ft_get_next_line(const int fd, char **line);
-
-#endif
+void	ft_error(void)
+{
+	write(1, "error\n", 6);
+	exit(-1);
+}

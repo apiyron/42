@@ -6,18 +6,54 @@
 #    By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/07/18 23:54:49 by mrhea-ro          #+#    #+#              #
-#    Updated: 2019/07/19 00:25:52 by mrhea-ro         ###   ########.fr        #
+#    Updated: 2019/07/21 19:34:46 by mrhea-ro         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = fillit
-SRC = main.c libft.a ft_error.c validate_fillit.c
-OBJ = main.o ft_error.o validate_fillit.o
+NAME :=			fillit
+
+SRC_PATH :=		srcs/
+INC_PATH :=		includes/
+LIB_PATH :=		libft/
+OBJ_PATH :=		.obj/
+
+CC :=			clang
+CFLAGS :=		-g -Wall -Wextra -Werror
+IFLAGS :=		-I $(INC_PATH) -I $(LIB_PATH)
+LFLAGS :=		-lft -L $(LIB_PATH)
+
+HFILES :=		fillit
+FILES :=		main ft_error validate_fillit
+
+LIB :=			$(LIB_PATH)libft.a
+
+HDRS :=			$(addprefix $(INC_PATH), $(addsuffix .h, $(HFILES)))
+SRCS :=			$(addprefix $(SRC_PATH), $(addsuffix .c, $(FILES)))
+OBJS :=			$(addprefix $(OBJ_PATH), $(SRCS:%.c=%.o))
+
 all: $(NAME)
-$(NAME):
-	gcc -Wall -Wextra -Werror $(SRC) -c $(SRC) -o $(NAME)
-clean:
-	rm -rf $(OBJ)
-fclean: clean
-	rm -rf $(NAME)
+
+$(NAME): $(LIB) $(OBJ_PATH) $(OBJS)
+	@ $(CC) $(CFLAGS) $(IFLAGS) $(LFLAGS) $(OBJS) -o $(NAME)
+$(LIB):
+	@ $(MAKE) -C $(dir $@) $(notdir $@)
+
+$(OBJ_PATH):
+	mkdir -p $(OBJ_PATH)$(SRC_PATH)
+$(OBJ_PATH)%.o: %.c $(HDRS)
+	$(CC) $(CFLAGS) $(IFLAGS) -c $< -o $@
+
+clean: mclean
+	make clean -C $(LIB_PATH)
+fclean: mfclean
+	make fclean -C $(LIB_PATH)
 re: fclean all
+
+mclean:
+	rm -f $(OBJS) $(DEPS)
+mfclean:
+	rm -f $(NAME)
+	rm -rf $(OBJ_PATH)
+mre: mfclean all
+
+.PHONY: $(LIB) all clean fclean re mclean mfclean mre

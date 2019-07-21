@@ -6,11 +6,11 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/06/03 11:52:48 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/07/13 22:17:10 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2019/07/21 19:26:46 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_get_next_line.h"
+#include "libft.h"
 
 int	next_line(int fd, char **line, char **tmp)
 {
