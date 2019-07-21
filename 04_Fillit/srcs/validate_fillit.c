@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/07/14 19:59:38 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/07/21 19:10:44 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2019/07/22 00:18:45 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,10 @@ t_tetra	**read_file(int fd)
 		}
 		line_num++;
 	}
+	free(arr[0]);
+	free(arr[1]);
+	free(arr[2]);
+	free(arr[3]);
 	if (line_num % 5 != 0)
 		ft_error();
 	return (shapes);
@@ -120,6 +124,7 @@ void	cut_rectangle(char **arr, t_tetra **t)
 	find_boundaries(arr, &boundaries);
 	while (*t)
 		t++;
+	// LEAK HERE
 	*t = malloc(sizeof(t_tetra));
 	(*t)->height = boundaries.bottom - boundaries.top + 1;
 	(*t)->width = boundaries.right - boundaries.left + 1;

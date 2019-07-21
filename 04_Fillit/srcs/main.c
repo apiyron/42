@@ -28,6 +28,7 @@ int		main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	shapes = read_file(fd);
 	fillit(shapes);
+	free(shapes);
 	return (0);
 }
 
