@@ -6,5 +6,5 @@ C_FLAGS = -g
 
 C_DEFINES = 
 
-C_INCLUDES = -I/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/includes -I/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/libft -I/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/srcs 
+C_INCLUDES = -I/Users/mrhea-ro/Desktop/42/04_Fillit/includes -I/Users/mrhea-ro/Desktop/42/04_Fillit/libft -I/Users/mrhea-ro/Desktop/42/04_Fillit/srcs 
 

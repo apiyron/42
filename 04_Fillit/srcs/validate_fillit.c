@@ -37,7 +37,7 @@ t_tetra	**read_file(int fd)
 		}
 		line_num++;
 	}
-ришнщ8п	free(arr[0]);
+	free(arr[0]);
 	free(arr[1]);
 	free(arr[2]);
 	free(arr[3]);

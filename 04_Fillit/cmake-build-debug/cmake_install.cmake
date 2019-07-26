@@ -1,4 +1,4 @@
-# Install script for directory: /Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit
+# Install script for directory: /Users/mrhea-ro/Desktop/42/04_Fillit
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/Users/mrhea-ro/Desktop/42/04_Fillit/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

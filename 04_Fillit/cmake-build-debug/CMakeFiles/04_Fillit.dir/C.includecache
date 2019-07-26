@@ -22,9 +22,9 @@ fcntl.h
 stdio.h
 -
 
-/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/srcs/validate_fillit.c
+/Users/mrhea-ro/Desktop/42/04_Fillit/srcs/main.c
 libft.h
-/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/srcs/libft.h
+/Users/mrhea-ro/Desktop/42/04_Fillit/srcs/libft.h
 fillit.h
-/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/srcs/fillit.h
+/Users/mrhea-ro/Desktop/42/04_Fillit/srcs/fillit.h
 
