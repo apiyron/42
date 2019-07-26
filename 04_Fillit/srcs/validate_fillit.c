@@ -37,7 +37,7 @@ t_tetra	**read_file(int fd)
 		}
 		line_num++;
 	}
-	free(arr[0]);
+ришнщ8п	free(arr[0]);
 	free(arr[1]);
 	free(arr[2]);
 	free(arr[3]);
@@ -116,26 +116,28 @@ void	find_boundaries(char **arr, t_boundaries *boundaries)
 
 void	cut_rectangle(char **arr, t_tetra **t)
 {
-	t_boundaries	boundaries;
-	int				i;
-	int				j;
-	int				k;
+    t_boundaries	boundaries;
+    int				i;
+    int				j;
+    int				k;
+    t_tetra 	*temp;
 
-	find_boundaries(arr, &boundaries);
-	while (*t)
-		t++;
-	// LEAK HERE
-	*t = malloc(sizeof(t_tetra));
-	(*t)->height = boundaries.bottom - boundaries.top + 1;
-	(*t)->width = boundaries.right - boundaries.left + 1;
-	(*t)->pix = ft_strnew(6);
-	i = boundaries.top;
-	k = 0;
-	while (i <= boundaries.bottom)
-	{
-		j = boundaries.left - 1;
-		while (++j <= boundaries.right)
-			(*t)->pix[k++] = arr[i][j];
-		i++;
-	}
+    find_boundaries(arr, &boundaries);
+    temp = *t;
+    while (temp)
+        temp++;
+    free(temp);
+    *t = malloc(sizeof(t_tetra));
+    (*t)->height = boundaries.bottom - boundaries.top + 1;
+    (*t)->width = boundaries.right - boundaries.left + 1;
+    (*t)->pix = ft_strnew(6);
+    i = boundaries.top;
+    k = 0;
+    while (i <= boundaries.bottom)
+    {
+        j = boundaries.left - 1;
+        while (++j <= boundaries.right)
+            (*t)->pix[k++] = arr[i][j];
+        i++;
+    }
 }

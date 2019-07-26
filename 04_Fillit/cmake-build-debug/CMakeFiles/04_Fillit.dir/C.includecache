@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../includes/fillit.h
+
+../includes/libft.h
+unistd.h
+-
+stdlib.h
+-
+string.h
+-
+ctype.h
+-
+fcntl.h
+-
+stdio.h
+-
+
+/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/srcs/validate_fillit.c
+libft.h
+/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/srcs/libft.h
+fillit.h
+/Users/apiyron/UCFMH/projects/apiyron@git/42/04_Fillit/srcs/fillit.h
+
