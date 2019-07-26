@@ -26,35 +26,21 @@ t_tetra	**read_file(int fd)
 	line_num = 1;
 	while ((ft_get_next_line(fd, &line)) == 1)
 	{
-		validate_line(line, line_num);
-		if (line_num % 5)
-			arr[(line_num % 5) - 1] = line;
-		if (line_num % 5 == 4)
-		{
-			if (is_valid_tetra(arr) == 0)
-				ft_error();
-			cut_rectangle(arr, shapes);
-		}
+		validate_line(line, line_num, shapes, arr);
 		if (line_num % 5 == 0)
 		{
-			free(arr[0]);
-			free(arr[1]);
-			free(arr[2]);
-			free(arr[3]);
+			free_arr(arr);
 			free(line);
 		}
 		line_num++;
 	}
-	free(arr[0]);
-	free(arr[1]);
-	free(arr[2]);
-	free(arr[3]);
+	free_arr(arr);
 	if (line_num % 5 != 0)
 		ft_error();
 	return (shapes);
 }
 
-void	validate_line(char *line, int line_num)
+void	validate_line(char *line, int line_num, t_tetra **shapes, char **arr)
 {
 	int	line_len;
 
@@ -63,6 +49,14 @@ void	validate_line(char *line, int line_num)
 		ft_error();
 	else if ((line_num % 5) == 0 && line_len != 0)
 		ft_error();
+	if (line_num % 5)
+		arr[(line_num % 5) - 1] = line;
+	if (line_num % 5 == 4)
+	{
+		if (is_valid_tetra(arr) == 0)
+			ft_error();
+		cut_rectangle(arr, shapes);
+	}
 }
 
 int		is_valid_tetra(char **arr)
@@ -124,25 +118,25 @@ void	find_boundaries(char **arr, t_boundaries *boundaries)
 
 void	cut_rectangle(char **arr, t_tetra **t)
 {
-    t_boundaries	boundaries;
-    int				i;
-    int				j;
-    int				k;
+	t_boundaries	boundaries;
+	int				i;
+	int				j;
+	int				k;
 
-    find_boundaries(arr, &boundaries);
-    while (*t)
-        t++;
-    *t = malloc(sizeof(t_tetra));
-    (*t)->height = boundaries.bottom - boundaries.top + 1;
-    (*t)->width = boundaries.right - boundaries.left + 1;
-    (*t)->pix = ft_strnew(6);
-    i = boundaries.top;
-    k = 0;
-    while (i <= boundaries.bottom)
-    {
-        j = boundaries.left - 1;
-        while (++j <= boundaries.right)
-            (*t)->pix[k++] = arr[i][j];
-        i++;
-    }
+	find_boundaries(arr, &boundaries);
+	while (*t)
+		t++;
+	*t = malloc(sizeof(t_tetra));
+	(*t)->height = boundaries.bottom - boundaries.top + 1;
+	(*t)->width = boundaries.right - boundaries.left + 1;
+	(*t)->pix = ft_strnew(6);
+	i = boundaries.top;
+	k = 0;
+	while (i <= boundaries.bottom)
+	{
+		j = boundaries.left - 1;
+		while (++j <= boundaries.right)
+			(*t)->pix[k++] = arr[i][j];
+		i++;
+	}
 }

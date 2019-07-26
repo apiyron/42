@@ -19,6 +19,7 @@ int		main(int argc, char **argv)
 {
 	int		fd;
 	t_tetra	**shapes;
+	int		i;
 
 	if (argc != 2)
 	{
@@ -28,13 +29,13 @@ int		main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	shapes = read_file(fd);
 	fillit(shapes);
-	int i = 0;
-    while (shapes[i])
-    {
-        free(shapes[i]->pix);
-        free(shapes[i]);
-        i++;
-    }
+	i = 0;
+	while (shapes[i])
+	{
+		free(shapes[i]->pix);
+		free(shapes[i]);
+		i++;
+	}
 	free(shapes);
 	return (0);
 }
