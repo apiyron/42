@@ -35,6 +35,14 @@ t_tetra	**read_file(int fd)
 				ft_error();
 			cut_rectangle(arr, shapes);
 		}
+		if (line_num % 5 == 0)
+		{
+			free(arr[0]);
+			free(arr[1]);
+			free(arr[2]);
+			free(arr[3]);
+			free(line);
+		}
 		line_num++;
 	}
 	free(arr[0]);
@@ -120,13 +128,10 @@ void	cut_rectangle(char **arr, t_tetra **t)
     int				i;
     int				j;
     int				k;
-    t_tetra 	*temp;
 
     find_boundaries(arr, &boundaries);
-    temp = *t;
-    while (temp)
-        temp++;
-    free(temp);
+    while (*t)
+        t++;
     *t = malloc(sizeof(t_tetra));
     (*t)->height = boundaries.bottom - boundaries.top + 1;
     (*t)->width = boundaries.right - boundaries.left + 1;

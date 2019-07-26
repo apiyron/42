@@ -31,10 +31,8 @@ int		main(int argc, char **argv)
 	int i = 0;
     while (shapes[i])
     {
-//        free(shapes[i]->width);
-//        free(shapes[i]->height);
-//        free(shapes[i]->pix);
-//        free(shapes[i]);
+        free(shapes[i]->pix);
+        free(shapes[i]);
         i++;
     }
 	free(shapes);
