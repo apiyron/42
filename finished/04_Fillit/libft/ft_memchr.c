@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mrhea-ro <mrhea-ro@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2018/12/24 10:45:32 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/19 19:31:21 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	get_next_line(0, 0);
+	int			i;
+	const char	*buff4ik;
+
+	buff4ik = s;
+	i = -1;
+	while (++i < (int)n)
+		if (buff4ik[i] == (char)c)
+			return ((void *)(s + i));
+	return (NULL);
 }

@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/03/19 23:05:22 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/03/19 23:07:31 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	get_next_line(0, 0);
+	char	*fresh;
+	int		i;
+
+	if (!s)
+		return (NULL);
+	fresh = ft_strnew(ft_strlen(s));
+	if (!fresh)
+		return (NULL);
+	i = -1;
+	while (s[++i])
+		fresh[i] = f(i, s[i]);
+	return (fresh);
 }

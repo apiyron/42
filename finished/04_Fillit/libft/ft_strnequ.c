@@ -1,18 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnequ.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/03/20 02:26:27 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/13 14:50:04 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+int		ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	get_next_line(0, 0);
+	if (!s1 || !s2)
+		return (0);
+	return (ft_strncmp(s1, s2, n) ? 0 : 1);
 }

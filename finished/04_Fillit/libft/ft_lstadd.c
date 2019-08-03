@@ -1,18 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstadd.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/04/30 20:48:04 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/25 11:35:38 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+void	ft_lstadd(t_list **alst, t_list *new)
 {
-	get_next_line(0, 0);
+	if (alst != NULL && new != NULL)
+	{
+		new->next = *alst;
+		*alst = new;
+	}
 }

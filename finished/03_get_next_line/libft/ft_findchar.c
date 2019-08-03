@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_findchar.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/05/26 17:49:41 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/26 17:49:56 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+int		ft_findch(char *str, char c)
 {
-	get_next_line(0, 0);
+	if (str == NULL)
+		return (0);
+	if (c == '\0')
+		return (1);
+	while (*str)
+	{
+		if (*str == c)
+			return (1);
+		str++;
+	}
+	return (0);
 }

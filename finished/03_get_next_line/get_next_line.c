@@ -5,59 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/06/03 11:52:48 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/06/07 09:29:40 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/05/26 15:53:16 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/26 18:25:46 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int	next_line(int fd, char **line, char **tmp)
+static char		*get_n(char **g)
 {
-	char *buff4ik;
+	size_t	i;
+	char	*str;
+	char	*tmp;
+	char	*tmp2;
 
-	if (ft_strchr(tmp[fd], '\n') != NULL)
-	{
-		*line = ft_strsub(tmp[fd], 0, \
-		ft_strchr(tmp[fd], '\n') - (tmp[fd]));
-		buff4ik = ft_strsub(tmp[fd], (ft_strchr(tmp[fd], '\n') - (tmp[fd])) \
-		+ 1, ft_strlen(tmp[fd]) - (ft_strchr(tmp[fd], '\n') - (tmp[fd])));
-		free(tmp[fd]);
-		tmp[fd] = buff4ik;
-		return (1);
-	}
-	if (ft_strchr(tmp[fd], '\n') == NULL)
-	{
-		*(line) = ft_strsub(tmp[fd], 0, ft_strlen(tmp[fd]));
-		ft_strdel(&tmp[fd]);
-		return (1);
-	}
-	return (1);
+	str = *g;
+	i = 0;
+	while (str[i] != '\n' && str[i] != '\0')
+		i++;
+	tmp = ft_strnew(i);
+	tmp = ft_strncpy(tmp, str, i);
+	tmp2 = ft_strnew(ft_strlen(&(str[i + 1])));
+	tmp2 = ft_strncpy(tmp2, &str[i + 1], ft_strlen(&str[i]));
+	free(*g);
+	*g = tmp2;
+	return (tmp);
 }
 
-int	get_next_line(int fd, char **line)
+int				get_next_line(const int fd, char **line)
 {
-	int			ret;
-	char		buff[BUFF_SIZE + 1];
-	char		*tmp;
-	static char	*tmp_buff[MAX_FD];
+	static char		*memory[12000];
+	char			buff[BUFF_SIZE + 1];
+	int				check;
 
-	if (fd < 0 || line == NULL)
+	if (read(fd, buff, 0) < 0 || line == NULL)
 		return (-1);
-	while ((ret = read(fd, buff, BUFF_SIZE)) > 0)
+	while (ft_findchar(memory[fd], '\n') == 0)
 	{
-		buff[ret] = '\0';
-		if (tmp_buff[fd] == NULL)
-			tmp_buff[fd] = ft_strnew(BUFF_SIZE);
-		tmp = ft_strjoin(tmp_buff[fd], (char *)buff);
-		free(tmp_buff[fd]);
-		tmp_buff[fd] = tmp;
-		if (ft_strchr(tmp_buff[fd], '\n'))
+		check = read(fd, buff, BUFF_SIZE);
+		buff[check] = '\0';
+		if (check <= 0)
 			break ;
+		memory[fd] = ft_strjoinfree(memory[fd], buff);
 	}
-	if (ret < 0)
-		return (-1);
-	else if (ret == 0 && (tmp_buff[fd] == NULL || tmp_buff[fd][0] == '\0'))
-		return (0);
-	return (next_line(fd, line, tmp_buff));
+	if (ft_strlen(memory[fd]) || check > 0)
+	{
+		*line = get_n(&memory[fd]);
+		return (1);
+	}
+	if (memory[fd])
+	{
+		free(memory[fd]);
+		memory[fd] = NULL;
+	}
+	return (0);
+}
+
+int				main()
+{
+	printf("hi mark");
+	return (0);
 }

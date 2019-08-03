@@ -1,33 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/03/20 02:44:50 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/13 09:37:25 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/04/30 20:48:48 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/23 21:42:26 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char const *s1, char const *s2)
+t_list	*ft_lstnew(void const *content, size_t content_size)
 {
-	char	*fresh;
-	size_t	i;
-	size_t	j;
+	t_list		*list;
 
-	if (!s1 || !s2)
+	if (!(list = (t_list *)malloc(sizeof(*list))))
 		return (NULL);
-	fresh = ft_strnew(ft_strlen(s1) + ft_strlen(s2) + 1);
-	if (!fresh)
-		return (NULL);
-	i = -1;
-	j = -1;
-	while (++i < ft_strlen(s1))
-		*(fresh + i) = *(s1 + i);
-	while (++j < ft_strlen(s2))
-		*(fresh + i++) = *(s2 + j);
-	return (fresh);
+	if (!content)
+	{
+		list->content = NULL;
+		list->content_size = 0;
+	}
+	else
+	{
+		if (!(list->content = (void *)malloc(content_size)))
+		{
+			free(list);
+			return (NULL);
+		}
+		ft_memcpy(list->content, content, content_size);
+		list->content_size = content_size;
+	}
+	list->next = NULL;
+	return (list);
 }

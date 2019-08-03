@@ -1,18 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_capitalize.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/05/14 17:44:07 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/14 17:44:15 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+char	*ft_capitalize(char *s)
 {
-	get_next_line(0, 0);
+	char	*new;
+	int		i;
+
+	if (!s)
+		return (NULL);
+	new = ft_strnew(ft_strlen(s));
+	new[0] = ft_toupper(s[0]);
+	i = 0;
+	while (*(s + ++i))
+		if (!ft_isalnum(s[i - 1]) && ft_isalnum(s[i]))
+			new[i] = ft_toupper(s[i]);
+		else
+			new[i] = s[i];
+	return (new);
 }

@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2018/12/22 03:05:16 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2018/12/22 06:33:45 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	get_next_line(0, 0);
+	size_t i;
+
+	i = -1;
+	while (++i < len)
+		dst[i] = src[i];
+	i = ft_strlen(src);
+	while (i < len)
+		dst[i++] = '\0';
+	return (dst);
 }

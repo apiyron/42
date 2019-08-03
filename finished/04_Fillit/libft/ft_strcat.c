@@ -1,18 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strcat.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2018/12/22 03:13:04 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2018/12/24 06:17:32 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+char	*ft_strcat(char *s1, const char *s2)
 {
-	get_next_line(0, 0);
+	char	*buff4ik;
+
+	buff4ik = s1;
+	while (*buff4ik != '\0')
+		buff4ik++;
+	while (*s2 != '\0')
+		*buff4ik++ = *s2++;
+	*buff4ik = '\0';
+	return (s1);
 }

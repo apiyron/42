@@ -1,18 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_lstfree.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/05/25 12:10:51 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/05/25 13:34:31 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+void	ft_lstfree(t_list *head)
 {
-	get_next_line(0, 0);
+	t_list	*temp;
+
+	while (head)
+	{
+		temp = head;
+		temp->content = head->content;
+		head = head->next;
+		free(temp->content);
+		free(temp);
+		temp = NULL;
+	}
 }

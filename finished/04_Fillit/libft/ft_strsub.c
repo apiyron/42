@@ -1,18 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strsub.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/05/26 20:03:15 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 20:03:51 by mrhea-ro         ###   ########.fr       */
+/*   Created: 2019/03/20 02:30:27 by mrhea-ro          #+#    #+#             */
+/*   Updated: 2019/03/20 02:42:33 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
-void		main()
+char	*ft_strsub(char const *s, unsigned int start, size_t len)
 {
-	get_next_line(0, 0);
+	size_t	i;
+	char	*fresh;
+
+	if (!s)
+		return (NULL);
+	fresh = ft_strnew(len);
+	if (!fresh)
+		return (NULL);
+	i = -1;
+	while (++i < len)
+		fresh[i] = s[start + i];
+	return (fresh);
 }

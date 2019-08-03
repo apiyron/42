@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 19:28:52 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 18:01:54 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2019/07/21 19:26:08 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,15 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <string.h>
+# include <ctype.h>
+# include <fcntl.h>
+# include <stdio.h>
+
+# define FT_GET_NEXT_LINE_H
+# define BUFF_SIZE 50000
+# define MAX_FD 255
+
+int					ft_get_next_line(int fd, char **line);
 
 int					ft_isascii(int c);
 int					ft_isalpha(int c);
@@ -97,8 +106,5 @@ t_list				*ft_lst_reverse(t_list *lst);
 void				ft_lstaddback(t_list **lst, t_list *new);
 int					ft_count2darray(char **arr);
 void				ft_lstfree(t_list *head);
-
-char				*ft_strjoinfree(char *s1, char *s2);
-int					ft_findchar(char *str, char c);
 
 #endif
