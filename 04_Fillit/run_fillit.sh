@@ -1,1 +1,0 @@
-gcc -Wall -Wextra -Werror main.c libft.a validate_fillit.c ft_error.c
