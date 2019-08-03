@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/07 19:28:52 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 18:01:54 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2019/05/25 13:30:37 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,5 @@ t_list				*ft_lst_reverse(t_list *lst);
 void				ft_lstaddback(t_list **lst, t_list *new);
 int					ft_count2darray(char **arr);
 void				ft_lstfree(t_list *head);
-
-char				*ft_strjoinfree(char *s1, char *s2);
-int					ft_findchar(char *str, char c);
 
 #endif

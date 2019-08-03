@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/26 15:53:45 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 15:55:41 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2019/06/04 11:44:56 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 # define GET_NEXT_LINE_H
 # define BUFF_SIZE 100
+# define MAX_FD 255
 
 # include <stdlib.h>
 # include <string.h>

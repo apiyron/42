@@ -6,7 +6,7 @@
 /*   By: mrhea-ro <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/12/22 03:05:16 by mrhea-ro          #+#    #+#             */
-/*   Updated: 2019/05/26 18:11:25 by mrhea-ro         ###   ########.fr       */
+/*   Updated: 2018/12/22 06:33:45 by mrhea-ro         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,13 @@
 
 char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	size_t	i;
+	size_t i;
 
-	i = 0;
+	i = -1;
+	while (++i < len)
+		dst[i] = src[i];
+	i = ft_strlen(src);
 	while (i < len)
-	{
-		if (*src == '\0')
-			dst[i++] = '\0';
-		else
-			dst[i++] = *src++;
-	}
+		dst[i++] = '\0';
 	return (dst);
 }
