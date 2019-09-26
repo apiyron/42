@@ -1,5 +1,9 @@
 # 2. Identify and display the Ethernet interface characteristics:
 # (a) Identify broadcast address
+echo "(a)"
 ifconfig -L en0 | grep "broadcast" | awk '{print $NF}'
 # (b) Identify all IP adresses which are part of the same subnet
+echo "(b)"
+ping $(ifconfig -L en0 | grep "broadcast" | awk '{print $NF}') > /dev/null &
+sleep 0.1
 arp -a | cut -d " " -f 2 | cut -c 2- | rev | cut -c 2- | rev
