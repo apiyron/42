@@ -1,0 +1,4 @@
+# 8. What file contains the RSA keys
+# of systems that are authorized to connect via SSH?
+ssh-keygen -t rsa
+In my case it is: .ssh/authorized_keys

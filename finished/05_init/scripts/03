@@ -1,0 +1,37 @@
+# 3. Three’s a Charm. Write a script of you choice.
+VSCODE="$HOME/Library/Application Support/Code/User/settings.json"
+SUBL2="$HOME/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings"
+JB_CFGS="$HOME/Library/Preferences"
+JB_PLUGINS="$HOME/Library/Application Support"
+IDEA="IntelliJIdea2017.2"
+PYCHARM="PyCharm2018.3"
+COPY_PLUGINS=0  # set to 1 if you also want to copy plugins
+
+echo "Exporting settings..."
+cp .zshrc ~/.zshrc
+cp .vimrc ~/.vimrc
+cp "settings.json" "$VSCODE"
+cp "Preferences.sublime-settings" "$SUBL2"
+
+if [ -d "./JetBrains/Configs" ]; then
+	if [ -d "./JetBrains/Configs/$IDEA" ]; then
+		echo "Exporting IDEA Configs..."
+		cp -a "./JetBrains/Configs/$IDEA" "$JB_CFGS/"
+	fi
+	if [ -d "./JetBrains/Configs/$PYCHARM" ]; then
+		echo "Exporting PyCharm Configs..."
+		cp -a "./JetBrains/Configs/$PYCHARM" "$JB_CFGS/"
+	fi
+fi
+if [[ ( -d "./JetBrains/Plugins" ) && ( $COPY_PLUGINS -eq "1" ) ]]; then
+	echo "COPY_PLUGINS 1 !!!"
+	if [ -d "./JetBrains/Plugins/$IDEA" ]; then
+		echo "Exporting IDEA Plugins..."
+		cp -a "./JetBrains/Plugins/$IDEA" "$JB_PLUGINS/"
+	fi
+	if [ -d "./JetBrains/Plugins/$PYCHARM" ]; then
+		echo "Exporting PyCharm Plugins..."
+		cp -a "./JetBrains/Plugins/$PYCHARM" "$JB_PLUGINS/"
+	fi
+fi
+echo "Settings succesfully loaded!"

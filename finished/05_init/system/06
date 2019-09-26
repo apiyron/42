@@ -1,0 +1,4 @@
+# 6. Name the command that reboots the SSH service.
+#
+# apt install policykit-1
+systemctl restart sshd

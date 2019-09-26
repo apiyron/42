@@ -1,0 +1,4 @@
+# 23. Explain how connect yourself as new user.
+# (With graphic session and ssh session)
+GUI: Ввести имя пользователя и пароль по запросу
+SSH: ssh USERNAME@IP -p PORT - ввести пароль

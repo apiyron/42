@@ -1,0 +1,11 @@
+# 6. Get the complete path of the file 
+# that contains the IP address of the DNS server you’re using
+/etc/resolv.conf
+The resolver is a set of routines in the C library that provide
+access to the Internet Domain Name System (DNS).
+The resolver configuration file contains information
+that is read by the resolver routines the first time
+they are invoked by a process.
+The file is designed to be human readable
+and contains a list of keywords with values
+that provide various types of resolver information.

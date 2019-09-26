@@ -1,0 +1,4 @@
+# 17. Find the command that allows you to connect via ssh
+# on the VM. (In parallel with the graphic session)
+ssh USER@HOST -p PORT
+# ie ssh apiyron@127.0.0.1 -p 2222

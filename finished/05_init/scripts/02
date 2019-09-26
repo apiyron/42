@@ -1,0 +1,12 @@
+# 2. Write a script which delete an ACTIVE user on the VM.
+if [ $# -eq 0 ] ; then
+    echo "Write user name as argument"
+    exit 0
+fi
+USER=$1
+pgrep -u $USER | 
+while read PID;
+do
+	kill $PID;
+done
+/usr/sbin/deluser $USER

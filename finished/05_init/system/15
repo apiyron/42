@@ -1,0 +1,9 @@
+# 15. Find the command that kills the background command’s process
+#
+# 1) jobs
+kill %1
+# 2) pgrep tail OR ps aux | grep tail
+# 	kill -9 $(PID)
+# 3) fg 1
+#	Ctrl+C
+# 4) pkill tail

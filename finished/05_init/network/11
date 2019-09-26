@@ -1,0 +1,8 @@
+# 11. Use the output of the previous command 
+# to find the name and IP address of the device 
+# that makes the link between you 
+# (local network) and the outside world
+#
+# traceroute 42.fr
+Last IP address that formatted like 192.168.*.*:
+192.168.2.9
